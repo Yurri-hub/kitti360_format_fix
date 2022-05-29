@@ -2,11 +2,11 @@ import numpy as np
 import os
 import yaml
 import cv2
-import enum
+# import enum
 from tqdm import tqdm
-import scipy.interpolate
-import matplotlib.pyplot as plt
-import pylab
+# import scipy.interpolate
+# import matplotlib.pyplot as plt
+# import pylab
 
 def load_distortion(fisheye_root):
     path = 'calibration/' + fisheye_root + '.yaml'
@@ -81,7 +81,8 @@ if __name__=="__main__":
             camera_select = 'P_rect_' + root[-2:]
             lastrow = np.array([0,0,0,1]).reshape(1,4)
             K_out = np.concatenate((readVariable(fid, camera_select, 3, 4), lastrow))
-            for image_file in tqdm(os.listdir(fisheye_path)):
+            print(fisheye_path)
+            for image_file in tqdm((os.listdir(fisheye_path))[:1000]):
                 image_path = fisheye_path + '/' + image_file
                 image_path_o = 'data_2d_raw/' + scene + '/' + root + '/data_rgb/' + image_file
                 image = cv2.imread(image_path)
