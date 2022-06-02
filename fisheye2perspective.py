@@ -87,7 +87,7 @@ if __name__=="__main__":
                 print('0.0', end=" ")
             print('0.0 0.0 0.0 1.0')
             print(fisheye_path)
-            for image_file in tqdm((os.listdir(fisheye_path))[:386]):
+            for image_file in tqdm((os.listdir(fisheye_path))[:1000]):
                 image_path = fisheye_path + '/' + image_file
                 image_path_o = 'data_2d_raw/' + scene + '/' + root + '/data_rgb/' + image_file
                 image = cv2.imread(image_path)
